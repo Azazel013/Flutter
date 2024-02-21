@@ -1,0 +1,122 @@
+// Flutter workshop: by(Hunchha Digital) -Ithahari-sunsari,
+
+// 1)dart programming language basics
+// 2)crud operationg using flutter & MockAPI (https://65d595adf6967ba8e3bbdc6c.mockapi.io/:endpoint)
+// 3)state management & Profiling in flutter
+// 4)Q&A
+
+// Dart:
+// -developed by google
+// -used for building web, mobile,and desktopo app
+// -compiled to native machine code for better performance
+
+
+
+
+// dart
+// void main(){
+//     print("hello")
+// }
+
+// void main(){
+//     List even=[1,2,3,"4this"];
+//     even.add(5);
+//     pritn(even);
+//     even.remove(2);
+//     print(even);
+    
+//     Map obj={
+//         "name":"krishna",
+//         "roll":"24",
+//     };
+//     print(obj['name]);
+// The type of obj is inferred by Dart, and it becomes a Map<String, String> because the keys and values provided are both of type String. Dart infers the type based on the types of the values provided during initialization.
+
+//     Map<dynamic,dynamic> obj={
+//         "name":"krishna",
+//         "roll":"24",
+//     };
+//Here, the type is explicitly specified as Map<dynamic, dynamic>, which means the keys and values can be of any type. In this case, although the keys and values are String, the type annotations allow for flexibility to include keys and values of any type.
+    
+//     int add(int a, int b){
+//      return a+b;
+// }
+//     print(add(2,3));
+
+
+// }
+
+// positional parameter: 
+// void main(){
+//     int add(int a, int b){
+//      return a+b;
+// }
+//     print(add(2,3));
+// Named parameter:  
+// void main(){
+//     int add({int a=3, int b=2}){
+//      return a+b;
+// }
+//     print(add(a:2,b:3));
+//     print(add());
+// }
+
+//required
+// int add({required int a=3, int b }){
+//      return a+b;
+// }
+   
+//     print(add(10));
+
+//arrow function
+// void main(){
+//     int add(int a, int b)=>a+b;
+//     print(add(2,3));
+
+//class
+// class Person{
+//     String name;
+//     int age;
+//     Person({required this.name,required this.age});
+//     void show(){
+//         print("name: $name, age: $age");
+//     }
+// }
+// void main(){
+//     Person p=Person(name:"krishna",age:24);
+//     p.show();
+// }
+
+//class without required and named parametner
+// class Person{
+//     String name;
+//     int age;
+//     Person(this.name,this.age);
+//     void show(){
+//         print("name: $name, age: $age");
+//     }
+// }
+// void main(){
+//     Person p=Person("krishna",24);
+//     p.show();
+// }
+
+
+// for each loop
+// void main(){
+//     List even=[1,2,3,4,5];
+//     even.forEach((element) {
+//         print(element);
+//     });
+// }
+
+//for each loop usin in
+// void main(){
+//     var even=[1,2,3,4,5];
+//     for(final i in even){
+//         print(i);
+//     }
+// }
+
+
+// MOCK API MA KEY
