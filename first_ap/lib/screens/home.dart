@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:first_ap/screens/add.dart';
 import 'package:first_ap/screens/delete.dart';
 import 'package:first_ap/screens/single.dart';
 import 'package:flutter/material.dart';
@@ -56,8 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icons.edit,
                           size: 20,
                         ),
-                        onPressed: () {
-                          print('Edit');
+                        onPressed: () => {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text('IconButton clicked!'),
+                          )),
                         },
                       ),
                       IconButton(
@@ -80,7 +83,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 );
-              }),
+              },
+            ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: () async {
+              var data =
+                  await showDialog(context: context, builder: (_) => AddBlog());
+              if (data == null) return;
+              setState(() {
+                blogs.insert(0, data);
+              });
+            },
+            child: Icon(Icons.add),
+          ),
+        ],
+      ),
     );
   }
 
