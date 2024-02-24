@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:first_app/screens/add.dart';
 import 'package:first_app/screens/delete.dart';
 import 'package:first_app/screens/single.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 return ListTile(
                   onTap: () {
-                    navigateToNextPageId(context, id);
+                    // navigateToNextPageId(context, id);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => SingleScreen(id)));
                   },
 
                   // leading: Icon(Icons.account_circle),
@@ -103,7 +106,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       IconButton(
                         icon: Icon(Icons.edit, size: 20),
-                        onPressed: () => print('dss'),
+                        onPressed: () => {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text('IconButton clicked!'),
+                          )),
+                        },
                       ),
                       IconButton(
                         icon: Icon(Icons.delete, size: 20),
@@ -122,6 +129,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          var data = await showDialog(
+              context: context, builder: (_) => AddBlogState());
+          if (data == null) return;
+          //checking if data is added or not and returning empty if not
+
+          setState(() {
+            blogs.insert(0, data);
+          });
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 
