@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:first_ap/screens/add.dart';
 import 'package:first_ap/screens/delete.dart';
+import 'package:first_ap/screens/edit.dart';
 import 'package:first_ap/screens/single.dart';
 import 'package:flutter/material.dart';
 
@@ -57,10 +58,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icons.edit,
                           size: 20,
                         ),
-                        onPressed: () => {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text('IconButton clicked!'),
-                          )),
+                        // onPressed: () => {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     SnackBar(
+                        //       content: Text('IconButton clicked!'),
+                        //     ),
+                        //   ),
+                        // },
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => EditBlog(blog, refreshData)));
                         },
                       ),
                       IconButton(
@@ -118,5 +127,13 @@ class _HomeScreenState extends State<HomeScreen> {
   void navigateToNextPageId(BuildContext context, String id) {
     Navigator.push(
         context, MaterialPageRoute(builder: (_) => SingleScreen(id)));
+  }
+
+//will be using this function when updating the data
+  void refreshData() {
+    setState(() {
+      isLoading = true;
+    });
+    getData();
   }
 }
