@@ -26,7 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('MockApi CRUD'),
+        title: Text('MockApi CRUD',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
         backgroundColor: Colors.blue,
       ),
       body: isLoading
